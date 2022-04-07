@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   resources :about, only: [:index]
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
-
   resource :cart, only: [:show] do
     post   :add_item
     post   :remove_item
   end
-
   resources :orders, only: [:create, :show]
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
   namespace :admin do
     root to: 'dashboard#show'
