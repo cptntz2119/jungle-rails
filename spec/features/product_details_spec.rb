@@ -25,7 +25,7 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     within first('.product') do
       click_on 'Details'
     end
-
+    sleep(2)
     
     save_screenshot
     expect(page).to have_css 'article.product-detail', count: 1
